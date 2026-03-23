@@ -41,4 +41,36 @@ public class pilha {
 
 	    return cont;
 	}
+	
+	public int max() {
+		
+		if (pilhaVazia()) {
+	        throw new RuntimeException("Pilha vazia");
+	    }
+		
+		pilha aux = new pilha();
+		int maior = pop();
+		aux.push(maior);
+		
+		while (!pilhaVazia()) {
+			
+			int vlr = pop();
+			
+			if (vlr > maior) {
+				maior = vlr;
+			}
+			
+			aux.push(vlr);
+		}
+		
+		while (!aux.pilhaVazia()) {
+			
+			push(aux.pop());
+		}
+		
+		
+		return maior;	
+		
+	}
+	
 }
